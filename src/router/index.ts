@@ -16,6 +16,21 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/qr-generator',
+      name: 'qr-generator',
+      component: () => import('../views/QRGeneratorView.vue')
+    },
+    {
+      path: '/qr-scanner',
+      name: 'qr-scanner',
+      component: () => import('../views/QRScannerView.vue')
+    },
+    {
+      path: '/qr-user/:username',
+      name: 'qr-user',
+      component: () => import('../views/QRUserView.vue')
     }
   ]
 })
