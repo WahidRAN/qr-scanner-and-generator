@@ -5,8 +5,8 @@ const router = useRouter()
 </script>
 
 <template>
-  <header>
-    <h1 class="text-center text-3xl text-blue-500" @click="router.push({ name: 'home' })">Hello</h1>
+  <header class="mx-auto">
+    <img src="./assets/logo.png" alt="logo event" class="w-32 h-32" @click="router.push({ name: 'home' })">
   </header>
 
   <RouterView />
