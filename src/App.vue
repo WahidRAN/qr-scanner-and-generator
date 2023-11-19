@@ -6,7 +6,12 @@ const router = useRouter()
 
 <template>
   <header class="mx-auto">
-    <img src="./assets/logo.png" alt="logo event" class="w-32 h-32" @click="router.push({ name: 'home' })">
+    <img
+      src="./assets/logo.png"
+      alt="logo event"
+      class="h-32 w-32"
+      @click="router.push({ name: 'home' })"
+    />
   </header>
 
   <RouterView />

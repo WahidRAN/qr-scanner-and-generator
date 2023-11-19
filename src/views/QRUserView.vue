@@ -25,7 +25,7 @@ const userQR = ref('http://localhost:5173' + route.fullPath)
         :level="levelQR"
         :render-as="renderQR"
       >
-        <div class="w-6 h-6 bg-slate-500"></div>
+        <div class="h-6 w-6 bg-slate-500"></div>
       </qrcode-vue>
     </section>
     <Alert class="mx-6" message="Show this QR Code to staff!"></Alert>
