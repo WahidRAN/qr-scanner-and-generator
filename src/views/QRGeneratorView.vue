@@ -28,17 +28,26 @@ const router = useRouter()
 </script>
 
 <template>
-  <div class="flex flex-grow flex-col content-center justify-center">
-    <input type="text" name="input-qr-value" id="input-qr-value" v-model="userInputQR" />
-    <qrcode-vue
+  <div class="mx-6 flex flex-grow flex-col content-center justify-around">
+    <section class="flex flex-col">
+      <label for="input-qr-value" class="mb-2 text-gray-800 font-semibold">Fullname</label>
+      <input
+        type="text"
+        name="input-qr-value"
+        id="input-qr-value"
+        v-model="userInputQR"
+        class="rounded-md px-3 py-2 text-xl font-light border border-sky-900 bg-gray-100"
+      />
+    </section>
+    <!-- <qrcode-vue
       v-if="generatedQR !== ''"
       class="mx-auto"
       :value="generatedQR"
       :size="200"
       :level="levelQR"
       :render-as="renderQR"
-    />
-    <p>Generated QR: {{ generatedQR }}</p>
+    /> -->
+    <!-- <p>Generated QR: {{ generatedQR }}</p> -->
     <button @click="router.push({ name: 'qr-user', params: { username: userInputQR } })">
       Go To Generated QR
     </button>

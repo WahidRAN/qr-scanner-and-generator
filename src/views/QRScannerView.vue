@@ -53,7 +53,7 @@ const onDetect = async ([firstDetectedCode]: any[]) => {
   paused.value = true
 
   // pretend it's taking really long
-  await timeout(3000)
+  await timeout(500)
   if (scannedQR.value) {
     isValid.value = scannedQR.value.startsWith('http')
   }
@@ -66,25 +66,27 @@ const onDetect = async ([firstDetectedCode]: any[]) => {
 
 <template>
   <div class="about">
-    <h1>Result: {{ scannedQR }}</h1>
-    <section :class="{ fullscreen: isFullscreen }" @fullscreenchange="onFullscreenChange">
+    <section v-if="!paused" :class="{ fullscreen: isFullscreen }" @fullscreenchange="onFullscreenChange">
       <qrcode-stream
         :paused="paused"
         :track="paintOutline"
         @detect="onDetect"
         @camera-on="resetValidationState"
         @error="logErrors"
-      >
-        <div v-if="validationSuccess" class="validation-success">
-          This is a URL, result: {{ scannedQR }}
-        </div>
+      ></qrcode-stream>
+    </section>
+    <section v-else>
+      <div v-if="validationSuccess" class="validation-success">
+        This is a URL, result: {{ scannedQR }}
+      </div>
 
-        <div v-if="validationFailure" class="validation-failure">This is NOT a URL!</div>
+      <div v-if="validationFailure" class="validation-failure">
+        This is NOT a URL!
+      </div>
 
-        <div v-if="validationPending" class="validation-pending">
-          Long validation in progress...
-        </div>
-      </qrcode-stream>
+      <div v-if="validationPending" class="validation-pending">
+        Long validation in progress...
+      </div>
     </section>
   </div>
 </template>

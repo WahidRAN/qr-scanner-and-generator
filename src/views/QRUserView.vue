@@ -5,7 +5,7 @@ import { useRoute } from 'vue-router'
 import type { Level, RenderAs } from 'qrcode.vue'
 // Import Components
 import QrcodeVue from 'qrcode.vue'
-import Alert from '@/components/AlertWQR.vue'
+// import Alert from '@/components/AlertWQR.vue'
 
 const levelQR = ref<Level>('H')
 const renderQR = ref<RenderAs>('svg')
@@ -28,6 +28,6 @@ const userQR = ref('http://localhost:5173' + route.fullPath)
         <div class="h-6 w-6 bg-slate-500"></div>
       </qrcode-vue>
     </section>
-    <Alert class="mx-6" message="Show this QR Code to staff!"></Alert>
+    <!-- <Alert class="mx-6" message="Show this QR Code to staff!"></Alert> -->
   </div>
 </template>
